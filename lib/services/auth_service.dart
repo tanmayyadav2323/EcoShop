@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'dart:developer';
 
+import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/error_handling.dart';
 import 'package:amazon_clone/constants/utils.dart';
 import 'package:amazon_clone/home/screens/home_screen.dart';
@@ -79,7 +79,7 @@ class AuthService {
               .then((value) {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              HomeScreen.routename,
+              BottomBar.routeName,
               (route) => false,
             );
           });

@@ -1,3 +1,4 @@
+import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone/home/screens/home_screen.dart';
@@ -48,7 +49,7 @@ class _MyAppState extends State<MyApp> {
               ColorScheme.light(primary: GlobalVariables.secondaryColor)),
       home: Provider.of<UserProvider>(context).user.token.isEmpty
           ? AuthScreen()
-          : HomeScreen(),
+          : BottomBar(),
       onGenerateRoute: (settings) => generateRoute(
         settings,
       ),
