@@ -23,7 +23,7 @@ const userSchema = mongoose.Schema({
         type: String,
         validate: {
             validator:(value)=>{
-                return value.length > 6;
+                return value.length > 1;
             },
             message: "Weak Password",
         }
