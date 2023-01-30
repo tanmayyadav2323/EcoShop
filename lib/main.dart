@@ -1,6 +1,6 @@
 import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/features/admin/admin_screen.dart';
+import 'package:amazon_clone/features/admin/screens/admin_screen.dart';
 import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone/features/home/screens/home_screen.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
@@ -37,6 +37,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Amazon Clone',
       theme: ThemeData(
           scaffoldBackgroundColor: GlobalVariables.backgroundColor,

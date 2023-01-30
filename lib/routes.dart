@@ -1,7 +1,7 @@
 import 'package:amazon_clone/common/widgets/bottom_bar.dart';
+import 'package:amazon_clone/features/admin/screens/add_product_screen.dart';
 import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone/features/home/screens/home_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings routeSettings) {
@@ -21,8 +21,13 @@ Route<dynamic> generateRoute(RouteSettings routeSettings) {
         settings: routeSettings,
         builder: (_) => BottomBar(),
       );
-    default:
+    case AddProductScreen.routename:
       return MaterialPageRoute(
+        settings: routeSettings,
+        builder: (_) => AddProductScreen(),
+      );
+    default:
+          return MaterialPageRoute(
         settings: routeSettings,
         builder: (_) => Scaffold(
           body: Text("Error Page "),
