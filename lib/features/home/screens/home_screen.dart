@@ -1,12 +1,12 @@
 import 'package:amazon_clone/constants/global_variables.dart';
-import 'package:amazon_clone/home/widget/address_box.dart';
-import 'package:amazon_clone/home/widget/carousel_image.dart';
-import 'package:amazon_clone/home/widget/deal_of_day.dart';
-import 'package:amazon_clone/home/widget/top_categories.dart';
+import 'package:amazon_clone/features/home/widget/address_box.dart';
+import 'package:amazon_clone/features/home/widget/carousel_image.dart';
+import 'package:amazon_clone/features/home/widget/deal_of_day.dart';
+import 'package:amazon_clone/features/home/widget/top_categories.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../providers/user_provider.dart';
+import '../../../providers/user_provider.dart';
 
 class HomeScreen extends StatefulWidget {
   static const routename = '/home';

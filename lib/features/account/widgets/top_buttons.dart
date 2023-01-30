@@ -1,4 +1,4 @@
-import 'package:amazon_clone/features/auth/screens/account/widgets/account_button.dart';
+import 'package:amazon_clone/features/account/widgets/account_button.dart';
 import 'package:flutter/material.dart';
 
 class TopButtons extends StatefulWidget {

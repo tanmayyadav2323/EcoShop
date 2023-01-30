@@ -1,7 +1,8 @@
 import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
+import 'package:amazon_clone/features/admin/admin_screen.dart';
 import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
-import 'package:amazon_clone/home/screens/home_screen.dart';
+import 'package:amazon_clone/features/home/screens/home_screen.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
 import 'package:amazon_clone/routes.dart';
 import 'package:amazon_clone/services/auth_service.dart';
@@ -49,7 +50,9 @@ class _MyAppState extends State<MyApp> {
               ColorScheme.light(primary: GlobalVariables.secondaryColor)),
       home: Provider.of<UserProvider>(context).user.token.isEmpty
           ? AuthScreen()
-          : BottomBar(),
+          : Provider.of<UserProvider>(context).user.type == 'user'
+              ? BottomBar()
+              : AdminScreen(),
       onGenerateRoute: (settings) => generateRoute(
         settings,
       ),
