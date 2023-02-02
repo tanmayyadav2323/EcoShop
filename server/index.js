@@ -5,6 +5,7 @@ const adminRouter = require('./routes/admin');
 
 //Import from other files
 const authRouter = require('./routes/auth');
+const productRouter = require('./routes/product');
 
 //Init
 const port = 3000
@@ -14,6 +15,7 @@ const DB = "mongodb+srv://Tanmay:Tanmay%402001@cluster0.3bnbusc.mongodb.net/?ret
 //middleware
 app.use(express.json());
 app.use(authRouter);
+app.use(productRouter);
 app.use(adminRouter);
 
 app.get("/hello-world", (req, res) => {

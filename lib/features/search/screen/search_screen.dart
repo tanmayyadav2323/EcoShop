@@ -1,31 +1,46 @@
+import 'package:amazon_clone/common/widgets/loader.dart';
 import 'package:amazon_clone/constants/global_variables.dart';
 import 'package:amazon_clone/features/home/widget/address_box.dart';
-import 'package:amazon_clone/features/home/widget/carousel_image.dart';
-import 'package:amazon_clone/features/home/widget/deal_of_day.dart';
-import 'package:amazon_clone/features/home/widget/top_categories.dart';
+import 'package:amazon_clone/features/search/services/search_services.dart';
+import 'package:amazon_clone/features/search/widget/searched_product.dart';
+import 'package:amazon_clone/model/product.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import '../../../providers/user_provider.dart';
-import '../../search/screen/search_screen.dart';
+class SearchScreen extends StatefulWidget {
+  static const String routename = '/search-screen';
+  final String searchQuery;
 
-class HomeScreen extends StatefulWidget {
-  static const routename = '/home';
-  const HomeScreen({super.key});
+  const SearchScreen({
+    Key? key,
+    required this.searchQuery,
+  }) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SearchScreenState extends State<SearchScreen> {
+  List<Product>? products;
+  final SearchServices searchServices = SearchServices();
+
+  @override
+  void initState() {
+    super.initState();
+    fetchSearchServices();
+  }
+
+  fetchSearchServices() async {
+    products = await searchServices.fetchSearchedProducts(
+        context: context, searchQuery: widget.searchQuery);
+    setState(() {});
+  }
+
   void naviagteToSearchScreen(String query) {
-    Navigator.of(context).pushNamed(SearchScreen.routename,arguments: query);
+    Navigator.of(context).pushNamed(SearchScreen.routename, arguments: query);
   }
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
-
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -93,22 +108,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: const [
-            AddressBox(),
-            SizedBox(
-              height: 10,
+      body: products == null
+          ? Loader()
+          : Column(
+              children: [
+                const AddressBox(),
+                const SizedBox(
+                  height: 10,
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    itemCount: products!.length,
+                    itemBuilder: (context, index) {
+                      return SearchedProduct(product: products![index]);
+                    },
+                  ),
+                )
+              ],
             ),
-            TopCategories(),
-            SizedBox(
-              height: 10,
-            ),
-            CarouselImage(),
-            DealOfDay()
-          ],
-        ),
-      ),
     );
   }
 }
