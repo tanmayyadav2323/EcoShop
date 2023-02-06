@@ -191,11 +191,18 @@ class _ApplePayConfigState extends State<ApplePayConfig> {
       PaymentConfiguration.fromAsset('gpay.json');
   final AddressServices addressServices = AddressServices();
 
-  void onApplePayResult(res) {
-    if (Provider.of<UserProvider>(context).user.address.isEmpty) {
+  void onApplePayResult() {
+    if (Provider.of<UserProvider>(context, listen: false)
+        .user
+        .address
+        .isEmpty) {
       addressServices.saveUserAddress(
           context: context, address: widget.addressToBeUsed);
     }
+    addressServices.placeOrder(
+        context: context,
+        address: widget.addressToBeUsed,
+        totalSum: double.parse(widget.paymentItems[0].amount));
   }
 
   @override
@@ -204,14 +211,19 @@ class _ApplePayConfigState extends State<ApplePayConfig> {
       future: _applePayConfigFuture,
       builder: (context, snapshot) => snapshot.hasData
           ? GooglePayButton(
-              onPressed: widget.function,
+              onPressed: (() {
+                widget.function();
+                onApplePayResult();
+              }),
               width: double.infinity,
               paymentConfiguration: snapshot.data!,
               type: GooglePayButtonType.buy,
               loadingIndicator: const Center(
                 child: CircularProgressIndicator(),
               ),
-              onPaymentResult: (Map<String, dynamic> result) {},
+              onPaymentResult: (Map<String, dynamic> result) {
+                onApplePayResult();
+              },
               paymentItems: widget.paymentItems,
               height: 50,
             )
