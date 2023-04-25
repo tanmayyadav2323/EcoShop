@@ -1,4 +1,4 @@
-# amazon_clone
+# EcoShop
 
 A new Flutter project.
 
