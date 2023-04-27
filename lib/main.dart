@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Amazon Clone',
+      title: 'EcoShop',
       theme: ThemeData(
           scaffoldBackgroundColor: GlobalVariables.backgroundColor,
           appBarTheme: AppBarTheme(

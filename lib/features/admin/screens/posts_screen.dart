@@ -49,6 +49,7 @@ class _PostsScreenState extends State<PostsScreen> {
         ? Loader()
         : Scaffold(
             body: GridView.builder(
+                padding: EdgeInsets.all(8),
                 gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2),
                 itemBuilder: (context, index) {
@@ -83,14 +84,14 @@ class _PostsScreenState extends State<PostsScreen> {
                 },
                 itemCount: products!.length),
             floatingActionButton: FloatingActionButton(
+              backgroundColor: Colors.green.withOpacity(0.8),
               child: Icon(
                 Icons.add,
+                color: Colors.white,
               ),
               onPressed: navigationToAddProduct,
               tooltip: 'Add a product',
             ),
-            floatingActionButtonLocation:
-                FloatingActionButtonLocation.centerFloat,
           );
   }
 }

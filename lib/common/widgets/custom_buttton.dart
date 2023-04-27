@@ -27,6 +27,7 @@ class _CustomButtonState extends State<CustomButton> {
       child: Text(
         widget.text,
         style: TextStyle(
+            fontSize: 18,
             color: widget.color == null ? Colors.white : Colors.black),
       ),
     );
