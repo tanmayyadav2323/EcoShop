@@ -2,7 +2,6 @@ import 'package:amazon_clone/common/widgets/stars.dart';
 import 'package:flutter/material.dart';
 import 'package:amazon_clone/model/product.dart';
 
-
 class SearchedProduct extends StatelessWidget {
   final Product product;
 
@@ -49,13 +48,13 @@ class SearchedProduct extends StatelessWidget {
               Container(
                 width: 235,
                 padding: const EdgeInsets.only(left: 10, top: 5),
-                child:  Stars(rating: avgRating),
+                child: Stars(rating: avgRating),
               ),
               Container(
                 width: 235,
                 padding: const EdgeInsets.only(left: 10, top: 5),
                 child: Text(
-                  '\$${product.price}',
+                  '₹${product.price}',
                   style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,

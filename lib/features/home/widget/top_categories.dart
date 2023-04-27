@@ -13,41 +13,44 @@ class TopCategories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 60,
+      height: 245,
       child: ListView.builder(
+        padding: EdgeInsets.all(8),
         scrollDirection: Axis.horizontal,
         itemCount: GlobalVariables.categoryImages.length,
-        itemExtent: 80,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () => navigateToCategoryPage(
               context,
               GlobalVariables.categoryImages[index]['title']!,
             ),
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
+            child: Container(
+              margin: EdgeInsets.all(8),
+              decoration:
+                  BoxDecoration(border: Border.all(color: Colors.black)),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 20,
                   ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      GlobalVariables.categoryImages[index]['image']!,
-                      fit: BoxFit.cover,
-                      height: 40,
-                      width: 40,
+                  Text(
+                    GlobalVariables.categoryImages[index]['title']!,
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
-                ),
-                Text(
-                  GlobalVariables.categoryImages[index]['title']!,
-                  style: TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.w400,
+                  SizedBox(
+                    height: 20,
                   ),
-                )
-              ],
+                  Image.asset(
+                    GlobalVariables.categoryImages[index]['image']!,
+                    fit: BoxFit.cover,
+                    height: 150,
+                    width: 150,
+                  ),
+                ],
+              ),
             ),
           );
         },

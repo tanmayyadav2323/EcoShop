@@ -57,17 +57,17 @@ class _OrderScreenState extends State<OrderScreen> {
                       ),
                     ),
                   ),
-                  Container(
-                    padding: const EdgeInsets.only(left: 15),
-                    child: Text(
-                      'See all',
-                      style: TextStyle(
-                        color: GlobalVariables.selectedNavBarColor,
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
+                  // Container(
+                  //   padding: const EdgeInsets.only(left: 15),
+                  //   child: Text(
+                  //     'See all',
+                  //     style: TextStyle(
+                  //       color: GlobalVariables.selectedNavBarColor,
+                  //       fontSize: 18,
+                  //       fontWeight: FontWeight.w600,
+                  //     ),
+                  //   ),
+                  // ),
                 ],
               ),
               Container(

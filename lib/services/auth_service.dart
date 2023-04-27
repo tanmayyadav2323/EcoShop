@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:amazon_clone/common/widgets/bottom_bar.dart';
 import 'package:amazon_clone/constants/error_handling.dart';
 import 'package:amazon_clone/constants/utils.dart';
+import 'package:amazon_clone/features/auth/screens/auth_screen.dart';
 import 'package:amazon_clone/features/home/screens/home_screen.dart';
 import 'package:amazon_clone/model/user.dart';
 import 'package:amazon_clone/providers/user_provider.dart';
@@ -22,15 +23,14 @@ class AuthService {
   }) async {
     try {
       User user = User(
-        id: '',
-        name: name,
-        email: email,
-        password: password,
-        address: '',
-        type: '',
-        token: '',
-        cart: []
-      );
+          id: '',
+          name: name,
+          email: email,
+          password: password,
+          address: '',
+          type: '',
+          token: '',
+          cart: []);
       http.Response res = await http.post(Uri.parse('$uri/api/signup'),
           body: user.toJson(),
           headers: <String, String>{
@@ -56,15 +56,14 @@ class AuthService {
   }) async {
     try {
       User user = User(
-        id: '',
-        email: email,
-        password: password,
-        address: '',
-        type: '',
-        name: '',
-        token: '',
-        cart: []
-      );
+          id: '',
+          email: email,
+          password: password,
+          address: '',
+          type: '',
+          name: '',
+          token: '',
+          cart: []);
       http.Response res = await http.post(Uri.parse('$uri/api/signin'),
           body: jsonEncode({"email": email, "password": password}),
           headers: <String, String>{
@@ -120,6 +119,21 @@ class AuthService {
         userProvider.setUser(userRes.body);
       }
       await http.post(Uri.parse('$uri/tokenIsValid'));
+    } catch (e) {
+      showSnackBar(context, e.toString());
+    }
+  }
+
+  void logOut(BuildContext context) async {
+    try {
+      SharedPreferences sharedPreferences =
+          await SharedPreferences.getInstance();
+      await sharedPreferences.setString('x-auth-token', '');
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AuthScreen.routeName,
+        (route) => false,
+      );
     } catch (e) {
       showSnackBar(context, e.toString());
     }

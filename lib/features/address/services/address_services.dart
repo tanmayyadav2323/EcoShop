@@ -14,7 +14,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class AddressServices {
-  void saveUserAddress({
+ Future <void> saveUserAddress({
     required BuildContext context,
     required String address,
   }) async {
@@ -48,7 +48,7 @@ class AddressServices {
   }
 
   //get all the products
-  void placeOrder({
+ Future <void> placeOrder({
     required BuildContext context,
     required String address,
     required double totalSum,

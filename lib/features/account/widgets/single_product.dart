@@ -21,12 +21,10 @@ class SingelProduct extends StatelessWidget {
           color: Colors.white,
         ),
         child: Container(
-          width: 100,
           padding: EdgeInsets.all(10),
           child: Image.network(
             image,
             fit: BoxFit.fitHeight,
-            width: 180,
           ),
         ),
       ),

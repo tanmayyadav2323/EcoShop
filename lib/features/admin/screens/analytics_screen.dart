@@ -1,4 +1,3 @@
-
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter/material.dart';
 
@@ -11,6 +10,7 @@ class Sales {
 
   Sales(this.label, this.earning);
 }
+
 class AnalyticsScreen extends StatefulWidget {
   const AnalyticsScreen({Key? key}) : super(key: key);
 
@@ -43,7 +43,7 @@ class _AnalyticsScreenState extends State<AnalyticsScreen> {
         : Column(
             children: [
               Text(
-                '\$$totalSales',
+                '₹$totalSales',
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

@@ -105,23 +105,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             borderSide:
                                 BorderSide(color: Colors.black38, width: 1),
                           ),
-                          hintText: 'Search Amazon.in',
+                          hintText: 'Search EcoShop',
                           hintStyle: const TextStyle(
                               fontWeight: FontWeight.w500, fontSize: 17)),
                     ),
                   ),
                 ),
               ),
-              Container(
-                color: Colors.transparent,
-                height: 42,
-                margin: const EdgeInsets.symmetric(horizontal: 10),
-                child: const Icon(
-                  Icons.mic,
-                  color: Colors.black,
-                  size: 20,
-                ),
-              )
             ],
           ),
         ),
@@ -174,7 +164,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     ),
                     children: [
                       TextSpan(
-                        text: "\$${widget.product.price}",
+                        text: "₹${widget.product.price}",
                         style: TextStyle(
                           fontSize: 22,
                           color: Colors.red,

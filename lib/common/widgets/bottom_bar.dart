@@ -43,7 +43,7 @@ class _BottomBarState extends State<BottomBar> {
         selectedItemColor: GlobalVariables.selectedNavBarColor,
         unselectedItemColor: GlobalVariables.unselectedNavBarColor,
         backgroundColor: GlobalVariables.backgroundColor,
-        iconSize: 20,
+        iconSize: 30,
         onTap: updatePage,
         items: [
           BottomNavigationBarItem(
@@ -95,7 +95,7 @@ class _BottomBarState extends State<BottomBar> {
                   ),
                 ),
               ),
-              child:bg. Badge(
+              child: bg.Badge(
                 badgeContent: Text(userCartLen.toString()),
                 badgeStyle: bg.BadgeStyle(
                   badgeColor: Colors.white,

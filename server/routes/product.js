@@ -3,11 +3,11 @@ const auth = require("../middlewares/auth");
 const { Product } = require("../models/product");
 const productRouter = express.Router();
 
-//api/product?catgory=Essentials
+//api/product?catgory=SkinCares
 //api/amazon?theme=dark
 //--> req.query.theme
 
-//api/products:catgory=Essentials
+//api/products:catgory=SkinCares
 //-->req.query.params
 
 productRouter.get("/api/products", auth, async (req, res) => {
