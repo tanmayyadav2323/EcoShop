@@ -212,8 +212,8 @@ class _ApplePayConfigState extends State<ApplePayConfig> {
       builder: (context, snapshot) => snapshot.hasData
           ? GooglePayButton(
               onPressed: (() {
-                widget.function();
                 onApplePayResult();
+                widget.function();
               }),
               width: double.infinity,
               paymentConfiguration: snapshot.data!,

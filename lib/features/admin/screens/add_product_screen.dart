@@ -35,16 +35,18 @@ class _AddProductScreenState extends State<AddProductScreen> {
     quantityController.dispose();
   }
 
-  String category = 'Mobiles';
+  String category = "Container and Bottles";
   List<File> images = [];
   final _addProductFormKey = GlobalKey<FormState>();
 
   List<String> productCategories = [
-    'Mobiles',
-    'Essentials',
-    'Appliances',
-    'Books',
-    'Fashion'
+    "Container and Bottles",
+    "Cleaning products",
+    "Fashion",
+    "Solar Powered Gadgets",
+    "Skincare",
+    "Compostable packaging",
+    "Home Goods"
   ];
 
   void sellProduct() {

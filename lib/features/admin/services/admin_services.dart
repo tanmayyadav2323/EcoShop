@@ -64,7 +64,7 @@ class AdminService {
     }
   }
 
-    Future<Map<String, dynamic>> getEarnings(BuildContext context) async {
+  Future<Map<String, dynamic>> getEarnings(BuildContext context) async {
     final userProvider = Provider.of<UserProvider>(context, listen: false);
     List<Sales> sales = [];
     int totalEarning = 0;
@@ -98,7 +98,6 @@ class AdminService {
       'totalEarnings': totalEarning,
     };
   }
-
 
   //get all the products
   Future<List<Product>> fetchAllProducts(BuildContext context) async {
